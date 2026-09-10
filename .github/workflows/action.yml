@@ -9,11 +9,15 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Scan with Snyk API & Web
-        id: snyk-scan
-        uses: Probely/probely-github-action@main
-        with:
-          api-key: ${{ secrets.PROBELY_API_KEY }}
-          target-id: "44xb2GZVa1oh"
-          region: "us"
-          scan-profile: "lightning"
+      # - name: Scan with Snyk API & Web
+      #   id: snyk-scan
+      #   uses: Probely/probely-github-action@main
+      #   with:
+      #     api-key: ${{ secrets.PROBELY_API_KEY }}
+      #     target-id: "44xb2GZVa1oh"
+      #     region: "us"
+      #     scan-profile: "lightning"
+      - name: Install Probely
+        run: pip install probely
+      - name: Blocking Scan with Probely
+        run: probely targets follow-scan --output JSON --severity-threshold CRITICAL --api-key ${{ secrets.PROBELY_API_KEY }} 44xb2GZVa1oh
