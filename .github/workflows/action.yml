@@ -22,7 +22,7 @@ jobs:
       # - name: Blocking Scan with Probely
       #   run: probely targets follow-scan --output JSON --severity-threshold CRITICAL --api-key ${{ secrets.PROBELY_API_KEY }} 44xb2GZVa1oh
       - name: Run Probely scan gate
-        uses: gwnlng/probely-gate-action/.github/actions/snyk-probely-gate
+        uses: gwnlng/snyk-probely-gate-action/.github/actions/snyk-probely-gate
         with:
           mode: follow-scan
           target_id: "44xb2GZVa1oh"
