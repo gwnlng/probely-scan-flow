@@ -1,4 +1,5 @@
 # Sample workflow for scanning a target with Snyk API & Web
+name: Snyk Probely scan
 on:
   # Runs on pushes targeting the default branch
   push:
@@ -6,7 +7,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
-  scan:
+  probely-scan:
     runs-on: ubuntu-latest
     steps:
       # - name: Scan with Snyk API & Web
@@ -27,7 +28,7 @@ jobs:
         with:
           mode: follow-scan
           target_id: "44xb2GZVa1oh"
-          severity-threshold: LOW
+          severity-threshold: CRITICAL
           timeout: '60'
           fail-immediately: 'false'
         env:
