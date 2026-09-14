@@ -28,8 +28,9 @@ jobs:
         with:
           mode: follow-scan
           target_id: "44xb2GZVa1oh"
-          severity-threshold: CRITICAL
+          severity-threshold: MEDIUM
           timeout: '60'
           fail-immediately: 'false'
+          output: JSON
         env:
           PROBELY_API_KEY: ${{ secrets.PROBELY_API_KEY }}
